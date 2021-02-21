@@ -1,6 +1,18 @@
+
+excluded_chars = '":;,.-+=/\\|[]{}()*^&'
+
 def word_count(s):
     # Your code here
-
+    s = s.split()
+    cache = {}
+    for raw_word in s:
+        word = raw_word.strip(excluded_chars).lower()
+        if word is '': 
+            return cache
+        if word not in cache: 
+            cache[word] = 0
+        cache[word] += 1
+    return cache
 
 
 if __name__ == "__main__":
